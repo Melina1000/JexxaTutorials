@@ -1,4 +1,4 @@
-package jexxatutorials;
+package jexxatutorials.hellojexxa;
 
 import io.jexxa.core.JexxaMain;
 import io.jexxa.infrastructure.drivingadapter.jmx.JMXAdapter;

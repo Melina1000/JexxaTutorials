@@ -1,0 +1,47 @@
+package jexxatutorials.timeservice.infrastructure.drivingadapter.messaging;
+
+import java.time.LocalTime;
+
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageListener;
+import javax.jms.TextMessage;
+
+import com.google.gson.Gson;
+import io.jexxa.infrastructure.drivingadapter.messaging.JMSConfiguration;
+import io.jexxa.utils.JexxaLogger;
+import jexxatutorials.timeservice.applicationservice.TimeService;
+
+public class PublishedTimeListener implements MessageListener
+{
+    private static final String TIME_TOPIC = "TimeService";
+
+    private final TimeService timeService;
+
+    //To implement a so called PortAdapter we need a public constructor whicht expects a single argument that must be an InboundPort.
+    public PublishedTimeListener(TimeService timeService)
+    {
+        this.timeService = timeService;
+    }
+
+    @Override
+    @JMSConfiguration(destination = TIME_TOPIC, messagingType = JMSConfiguration.MessagingType.TOPIC)
+    public void onMessage(Message message)
+    {
+        //The JMSSender sends all messages as TextMessage in JSON encoding
+        var textMessage = (TextMessage) message;
+
+        try
+        {
+           //Deserialize the message which is of type 'LocalTime'
+            var time = new Gson().fromJson(textMessage.getText(), LocalTime.class);
+
+            //Forward this information to corresponding application service.
+            timeService.showPublishedTimed(time);
+        }
+        catch (JMSException jmsException)
+        {
+            JexxaLogger.getLogger(PublishedTimeListener.class).error(jmsException.getMessage());
+        }
+    }
+}
