@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>jexxatutorials</artifactId>
+    <groupId>JexxaTutorials</groupId>
+    <packaging>pom</packaging>
+    <name>JexxaTutorials</name>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <properties>
+        <!--version of  maven plugins  -->
+        <gpg.plugin.version>1.6</gpg.plugin.version>
+        <maven.clean.plugin>3.1.0</maven.clean.plugin>
+        <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
+        <maven.deploy.plugin>3.0.0-M1</maven.deploy.plugin>
+        <maven.failsafe.plugin>3.0.0-M4</maven.failsafe.plugin>
+        <maven.install.plugin>3.0.0-M1</maven.install.plugin>
+        <maven.jar.plugin>3.2.0</maven.jar.plugin>
+        <maven.resources.plugin>3.1.0</maven.resources.plugin>
+        <maven.site.plugin>3.9.0</maven.site.plugin>
+        <maven.surefire.plugin>3.0.0-M4</maven.surefire.plugin>
+        <maven.release.plugin>3.0.0-M1</maven.release.plugin>
+        <maven.jacoco.plugin>0.8.5</maven.jacoco.plugin>
+        <maven.reports.plugin>3.1.0</maven.reports.plugin>
+        <maven.enforcer.plugin>3.0.0-M3</maven.enforcer.plugin>
+        <maven.javadoc.plugin>3.2.0</maven.javadoc.plugin>
+
+        <!-- target/compiler configuration  -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>11</maven.compiler.release>
+
+        <!-- version of test dependencies -->
+        <slf4j.simple.version>1.7.30</slf4j.simple.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.jexxa</groupId>
+            <artifactId>jexxa-core</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.simple.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin}</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+        <module>HelloJexxa</module>
+    </modules>
+</project>
