@@ -16,7 +16,7 @@ import org.apache.commons.cli.ParseException;
 public class TimeServiceApplication
 {
     //Declare the packages that should be used by Jexxa
-    private static final String JMS_DRIVEN_ADAPTER = TimeService.class.getPackageName() + ".infrastructure.drivenadapter.messaging";
+    private static final String JMS_DRIVEN_ADAPTER = TimeServiceApplication.class.getPackageName() + ".infrastructure.drivenadapter.messaging";
     private static final String CONSOLE_DRIVEN_ADAPTER = TimeServiceApplication.class.getPackageName() + ".infrastructure.drivenadapter.console";
     private static final String OUTBOUND_PORTS = TimeServiceApplication.class.getPackageName() + ".domainservice";
 
@@ -28,7 +28,7 @@ public class TimeServiceApplication
                 //Define which outbound ports should be managed by Jexxa
                 .addToApplicationCore(OUTBOUND_PORTS)
 
-                //Define the driving adapter whose implementation of the outbound port should be used by Jexxa.
+                //Define the driven adapter whose implementation of the outbound port should be used by Jexxa.
                 .addToInfrastructure(getDrivenAdapter(args));
 
         //If JMS is enabled bind 'JMSAdapter' to our application

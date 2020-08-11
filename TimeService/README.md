@@ -21,12 +21,12 @@
 
 The application core consists of following two classes:
 
-*   `TimeService`: Provides uses cases of the domain and is a `ApplicationService` in terms of the pattern language of DDD
+*   `TimeService`: Provides use cases of the domain and is a `ApplicationService` in terms of the pattern language of DDD
 *   `ITimePublisher`: Allows for publishing current time and is a `DomainService` in terms of the pattern language of DDD        
 
 ### Implement class `TimeService` 
 
-This class provides the supports the main two very simple use cases of this application: 
+This class provides the supports of two very simple use cases of this application: 
 *   Provide current time
 *   Publish current time in any way.   
 
