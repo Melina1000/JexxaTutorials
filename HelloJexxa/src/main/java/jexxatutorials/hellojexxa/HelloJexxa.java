@@ -26,8 +26,8 @@ public final class HelloJexxa
                 //Wait until shutdown is called by one of the following options:
                 // - Press CRTL-C
                 // Use 'jconsole' to connect to this application and invoke method shutdown
-                // - Use HTTP-post to URL: 'http://localhost:7000/BoundedContext/shutdown'
-                //   (using curl: 'curl -X POST http://localhost:7000/BoundedContext/shutdown'
+                // - Use HTTP-post to URL: 'http://localhost:7001/BoundedContext/shutdown'
+                //   (using curl: 'curl -X POST http://localhost:7001/BoundedContext/shutdown'
                 .waitForShutdown()
 
                 //Finally invoke stop() for proper cleanup
