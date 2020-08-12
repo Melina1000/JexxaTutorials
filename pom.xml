@@ -18,6 +18,7 @@
         <maven.deploy.plugin>3.0.0-M1</maven.deploy.plugin>
         <maven.install.plugin>3.0.0-M1</maven.install.plugin>
         <maven.jar.plugin>3.2.0</maven.jar.plugin>
+        <maven.assembly.plugin>2.2-beta-5</maven.assembly.plugin>
         <maven.resources.plugin>3.1.0</maven.resources.plugin>
         <maven.surefire.plugin>3.0.0-M4</maven.surefire.plugin>
         <maven.release.plugin>3.0.0-M1</maven.release.plugin>
@@ -80,5 +81,6 @@
     <modules>
         <module>HelloJexxa</module>
         <module>TimeService</module>
+        <module>BookStore</module>
     </modules>
 </project>
