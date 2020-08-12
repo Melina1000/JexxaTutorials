@@ -37,7 +37,7 @@ public class PublishedTimeListener implements MessageListener
             var time = new Gson().fromJson(textMessage.getText(), LocalTime.class);
 
             //Forward this information to corresponding application service.
-            timeService.showPublishedTimed(time);
+            timeService.displayPublishedTimed(time);
         }
         catch (JMSException jmsException)
         {

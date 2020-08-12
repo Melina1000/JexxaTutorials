@@ -3,12 +3,14 @@ package jexxatutorials.timeservice.applicationservice;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-import io.jexxa.utils.JexxaLogger;
+import jexxatutorials.timeservice.domainservice.IMessageDisplayer;
 import jexxatutorials.timeservice.domainservice.ITimePublisher;
 
+@SuppressWarnings("unused") // Method which is invoked via (jexxa) driving adapter might seem unused
 public class TimeService
 {
     private final ITimePublisher timePublisher;
+    private final IMessageDisplayer messageDisplayer;
 
     /**
      * Note: Jexxa supports only implicit constructor injection. Therefore, we must
@@ -16,9 +18,10 @@ public class TimeService
      *
      * @param timePublisher required outbound port for this application service
      */
-    public TimeService(ITimePublisher timePublisher)
+    public TimeService(ITimePublisher timePublisher, IMessageDisplayer messageDisplayer)
     {
         this.timePublisher = timePublisher;
+        this.messageDisplayer = messageDisplayer;
     }
 
     /**
@@ -31,16 +34,20 @@ public class TimeService
     }
 
     /**
-     * This methods publishes the current local time.
+     * This method publishes the current local time.
      */
     public void publishTime()
     {
         timePublisher.publish(getTime());
     }
 
-    public void showPublishedTimed(LocalTime localTime)
+    /**
+     * This method shows the previously published time.
+     * @param localTime the previously published time
+     */
+    public void displayPublishedTimed(LocalTime localTime)
     {
-        var logMessage = localTime.format(DateTimeFormatter.ISO_TIME);
-        JexxaLogger.getLogger(TimeService.class).info("New Time was published: {} ", logMessage);
+        var messageWithPublishedTime = "New Time was published, time: " + localTime.format(DateTimeFormatter.ISO_TIME);
+        messageDisplayer.display(messageWithPublishedTime);
     }
 }

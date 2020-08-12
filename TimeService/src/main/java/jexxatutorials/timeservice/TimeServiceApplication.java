@@ -18,6 +18,7 @@ public class TimeServiceApplication
     //Declare the packages that should be used by Jexxa
     private static final String JMS_DRIVEN_ADAPTER = TimeServiceApplication.class.getPackageName() + ".infrastructure.drivenadapter.messaging";
     private static final String CONSOLE_DRIVEN_ADAPTER = TimeServiceApplication.class.getPackageName() + ".infrastructure.drivenadapter.console";
+    private static final String VISUAL_OUTPUT_DRIVEN_ADAPTER = TimeServiceApplication.class.getPackageName() + ".infrastructure.drivenadapter.visualoutput";
     private static final String OUTBOUND_PORTS = TimeServiceApplication.class.getPackageName() + ".domainservice";
 
     public static void main(String[] args)
@@ -29,7 +30,10 @@ public class TimeServiceApplication
                 .addToApplicationCore(OUTBOUND_PORTS)
 
                 //Define the driven adapter whose implementation of the outbound port should be used by Jexxa.
-                .addToInfrastructure(getDrivenAdapter(args));
+                .addToInfrastructure(getDrivenAdapter(args))
+
+                //Define the driven adapter whose implementation of the other outbound port should be used by Jexxa.
+                .addToInfrastructure(VISUAL_OUTPUT_DRIVEN_ADAPTER);
 
         //If JMS is enabled bind 'JMSAdapter' to our application
         //Note: Jexxa's JMSAdapter is a so called specific driving adapter which cannot be directly connected to an inbound port because we cannot
