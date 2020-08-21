@@ -37,6 +37,7 @@
         <junit.jupiter.params.version>5.7.0-M1</junit.jupiter.params.version>
         <slf4j.simple.version>1.7.30</slf4j.simple.version>
         <activemq.client.version>5.16.0</activemq.client.version>
+        <postgres.version>42.2.14</postgres.version>
     </properties>
 
     <dependencies>

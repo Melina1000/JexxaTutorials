@@ -65,6 +65,13 @@
             <version>${junit.jupiter.params.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- dependencies for tests with JDBCAdapter -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgres.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
