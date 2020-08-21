@@ -12,7 +12,7 @@ import jexxatutorials.bookstorej.stub.DomainEventStubPublisher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class BookStoreServiceTest
+class BookStoreJServiceTest
 {
     private static final String DRIVEN_ADAPTER_PERSISTENCE = "jexxatutorials.bookstore.infrastructure.drivenadapter.persistence";
     private static final String DRIVEN_ADAPTER_MESSAGING = "jexxatutorials.bookstore.infrastructure.drivenadapter.stub";
@@ -41,7 +41,7 @@ class BookStoreServiceTest
     void addBooksToStock()
     {
         //Arrange
-        var objectUnderTest = jexxaMain.getInstanceOfPort(BookStoreService.class);
+        var objectUnderTest = jexxaMain.getInstanceOfPort(BookStoreJService.class);
         var amount = 5;
 
         //Act
@@ -55,7 +55,7 @@ class BookStoreServiceTest
     void sellBook() throws BookNotInStock
     {
         //Arrange
-        var objectUnderTest = jexxaMain.getInstanceOfPort(BookStoreService.class);
+        var objectUnderTest = jexxaMain.getInstanceOfPort(BookStoreJService.class);
         var amount = 5;
         objectUnderTest.addToStock(ISBN_13, amount);
 
@@ -70,7 +70,7 @@ class BookStoreServiceTest
     void sellBookNotInStock()
     {
         //Arrange
-        var objectUnderTest = jexxaMain.getInstanceOfPort(BookStoreService.class);
+        var objectUnderTest = jexxaMain.getInstanceOfPort(BookStoreJService.class);
 
         //Act/Assert
         assertThrows(BookNotInStock.class, () -> objectUnderTest.sell(ISBN_13));
@@ -80,7 +80,7 @@ class BookStoreServiceTest
     void sellLastBook() throws BookNotInStock
     {
         //Arrange
-        var objectUnderTest = jexxaMain.getInstanceOfPort(BookStoreService.class);
+        var objectUnderTest = jexxaMain.getInstanceOfPort(BookStoreJService.class);
         objectUnderTest.addToStock(ISBN_13, 1);
 
         //Act

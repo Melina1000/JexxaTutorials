@@ -8,7 +8,7 @@ import io.jexxa.infrastructure.drivenadapterstrategy.persistence.jdbc.JDBCKeyVal
 import io.jexxa.infrastructure.drivingadapter.jmx.JMXAdapter;
 import io.jexxa.infrastructure.drivingadapter.rest.RESTfulRPCAdapter;
 import io.jexxa.utils.JexxaLogger;
-import jexxatutorials.bookstorej.applicationservice.BookStoreService;
+import jexxatutorials.bookstorej.applicationservice.BookStoreJService;
 import jexxatutorials.bookstorej.domainservice.ReferenceLibrary;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -16,11 +16,11 @@ import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
-public class BookStoreApplication
+public class BookStoreJApplication
 {
     // Declare the packages that should be used by Jexxa
-    private static final String DRIVEN_ADAPTER = BookStoreApplication.class.getPackageName() + ".infrastructure.drivenadapter";
-    private static final String OUTBOUND_PORTS = BookStoreApplication.class.getPackageName() + ".domainservice";
+    private static final String DRIVEN_ADAPTER = BookStoreJApplication.class.getPackageName() + ".infrastructure.drivenadapter";
+    private static final String OUTBOUND_PORTS = BookStoreJApplication.class.getPackageName() + ".domainservice";
 
     public static void main(String[] args)
     {
@@ -30,7 +30,7 @@ public class BookStoreApplication
         // of DDD our aggregate is responsible to ensure consistency of our data and not the database.
         RepositoryManager.getInstance().setDefaultStrategy(getDrivenAdapterStrategy(args));
 
-        final JexxaMain jexxaMain = new JexxaMain(BookStoreApplication.class.getSimpleName());
+        final JexxaMain jexxaMain = new JexxaMain(BookStoreJApplication.class.getSimpleName());
 
         jexxaMain
                 // Define which outbound ports should be managed by Jexxa
@@ -40,8 +40,8 @@ public class BookStoreApplication
                 //Get the latest books when starting the application
                 .bootstrap(ReferenceLibrary.class).with(ReferenceLibrary::addLatestBooks)
 
-                .bind(RESTfulRPCAdapter.class).to(BookStoreService.class)
-                .bind(JMXAdapter.class).to(BookStoreService.class)
+                .bind(RESTfulRPCAdapter.class).to(BookStoreJService.class)
+                .bind(JMXAdapter.class).to(BookStoreJService.class)
 
                 .bind(JMXAdapter.class).to(jexxaMain.getBoundedContext())
 
@@ -65,24 +65,24 @@ public class BookStoreApplication
 
             if(line.hasOption("jdbc"))
             {
-                JexxaLogger.getLogger(BookStoreApplication.class).info("Use persistence strategy: {} ", JDBCKeyValueRepository.class.getSimpleName());
+                JexxaLogger.getLogger(BookStoreJApplication.class).info("Use persistence strategy: {} ", JDBCKeyValueRepository.class.getSimpleName());
                 return JDBCKeyValueRepository.class;
             }
             else
             {
-                JexxaLogger.getLogger(BookStoreApplication.class).info("Use persistence strategy: {} ", IMDBRepository.class.getSimpleName());
+                JexxaLogger.getLogger(BookStoreJApplication.class).info("Use persistence strategy: {} ", IMDBRepository.class.getSimpleName());
                 return IMDBRepository.class;
             }
         }
         catch (ParseException exception)
         {
-            JexxaLogger.getLogger(BookStoreApplication.class)
+            JexxaLogger.getLogger(BookStoreJApplication.class)
                     .error( "Parsing failed.  Reason: {}", exception.getMessage() );
         }
         return IMDBRepository.class;
     }
 
-    private BookStoreApplication()
+    private BookStoreJApplication()
     {
         // Private constructor since we only offer main
     }

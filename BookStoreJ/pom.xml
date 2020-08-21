@@ -10,8 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>BookStoreJ</artifactId>
+
     <properties>
-        <main.class>jexxatutorials.bookstore.BookStoreApplication</main.class>
+        <main.class>jexxatutorials.bookstorej.BookStoreJApplication</main.class>
+        <addendj.version>1.0.1</addendj.version>
+        <aspectjtools.version>1.9.6</aspectjtools.version>
+        <aspectjrt.version>1.9.6</aspectjrt.version>
     </properties>
 
     <dependencies>
@@ -20,6 +24,25 @@
             <artifactId>commons-cli</artifactId>
             <version>${commons.cli.version}</version>
             <scope>compile</scope>
+        </dependency>
+
+        <!-- dependencies for application core -->
+        <dependency>
+            <groupId>io.jexxa.addendj</groupId>
+            <artifactId>AddendJ</artifactId>
+            <version>${addendj.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+            <version>${aspectjtools.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectjrt.version}</version>
         </dependency>
 
         <!-- dependencies for tests -->

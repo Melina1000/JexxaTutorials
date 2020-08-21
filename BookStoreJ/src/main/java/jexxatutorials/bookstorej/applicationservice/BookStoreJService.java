@@ -12,12 +12,12 @@ import jexxatutorials.bookstorej.domainservice.IBookRepository;
 import jexxatutorials.bookstorej.domainservice.IDomainEventPublisher;
 
 @SuppressWarnings("unused") // Methods which are invoked via (jexxa) driving adapter might seem unused
-public class BookStoreService
+public class BookStoreJService
 {
     private final IBookRepository bookRepository;
     private final IDomainEventPublisher domainEventPublisher;
 
-    public BookStoreService(IBookRepository bookRepository, IDomainEventPublisher domainEventPublisher)
+    public BookStoreJService(IBookRepository bookRepository, IDomainEventPublisher domainEventPublisher)
     {
         this.bookRepository = bookRepository;
         this.domainEventPublisher = domainEventPublisher;

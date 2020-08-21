@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import io.jexxa.core.JexxaMain;
 import io.jexxa.infrastructure.drivenadapterstrategy.persistence.RepositoryManager;
 import io.jexxa.infrastructure.drivenadapterstrategy.persistence.imdb.IMDBRepository;
-import jexxatutorials.bookstorej.applicationservice.BookStoreService;
+import jexxatutorials.bookstorej.applicationservice.BookStoreJService;
 import jexxatutorials.bookstorej.domain.aggregate.Book;
 import jexxatutorials.bookstorej.stub.DomainEventStubPublisher;
 import org.junit.jupiter.api.BeforeEach;
@@ -44,7 +44,7 @@ class ReferenceLibraryTest
          // Arrange:
          // get the inbound port that we would like to test
          var objectUnderTest = jexxaMain.getInstanceOfPort(ReferenceLibrary.class);
-         var bookStore = jexxaMain.getInstanceOfPort(BookStoreService.class);
+         var bookStore = jexxaMain.getInstanceOfPort(BookStoreJService.class);
 
          // Act:
          objectUnderTest.addLatestBooks();
