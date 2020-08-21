@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import jexxatutorials.timeservice.domainservice.IMessageDisplayer;
 import jexxatutorials.timeservice.domainservice.ITimePublisher;
 
-@SuppressWarnings("unused") // Method which is invoked via (jexxa) driving adapter might seem unused
+@SuppressWarnings("unused") // Methods which are invoked via (jexxa) driving adapter might seem unused
 public class TimeService
 {
     private final ITimePublisher timePublisher;
