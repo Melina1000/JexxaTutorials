@@ -53,6 +53,19 @@ public class BookStoreService
                 .orElse(false);
     }
 
+    public int amountInStock(String isbn13)
+    {
+        return amountInStock(new ISBN13(isbn13));
+    }
+
+    int amountInStock(ISBN13 isbn13)
+    {
+        return bookRepository
+                .search(isbn13)
+                .map(Book::getAmountInStock)
+                .orElse(0);
+    }
+
     public void sell(String isbn13) throws BookNotInStock
     {
         sell(new ISBN13(isbn13));
