@@ -16,10 +16,10 @@ import org.apache.commons.cli.ParseException;
 public class TimeServiceApplication
 {
     //Declare the packages that should be used by Jexxa
-    private static final String JMS_DRIVEN_ADAPTER = TimeServiceApplication.class.getPackageName() + ".infrastructure.drivenadapter.messaging";
-    private static final String CONSOLE_DRIVEN_ADAPTER = TimeServiceApplication.class.getPackageName() + ".infrastructure.drivenadapter.console";
-    private static final String VISUAL_OUTPUT_DRIVEN_ADAPTER = TimeServiceApplication.class.getPackageName() + ".infrastructure.drivenadapter.visualoutput";
-    private static final String OUTBOUND_PORTS = TimeServiceApplication.class.getPackageName() + ".domainservice";
+    private static final String JMS_DRIVEN_ADAPTER = TimeServiceApplication.class.getPackageName() + ".jexxatutorials.bookstore.infrastructure.drivenadapter.messaging";
+    private static final String CONSOLE_DRIVEN_ADAPTER = TimeServiceApplication.class.getPackageName() + ".jexxatutorials.bookstore.infrastructure.drivenadapter.console";
+    private static final String VISUAL_OUTPUT_DRIVEN_ADAPTER = TimeServiceApplication.class.getPackageName() + ".jexxatutorials.bookstore.infrastructure.drivenadapter.visualoutput";
+    private static final String OUTBOUND_PORTS = TimeServiceApplication.class.getPackageName() + ".jexxatutorials.bookstore.domainservice";
 
     public static void main(String[] args)
     {

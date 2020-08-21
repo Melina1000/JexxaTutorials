@@ -1,15 +1,15 @@
-package applicationservice;
+package jexxatutorials.bookstore.applicationservice;
 
-import static domain.aggregate.Book.newBook;
+import static jexxatutorials.bookstore.domain.aggregate.Book.newBook;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import domain.aggregate.Book;
-import domain.businessexception.BookNotInStock;
-import domain.valueobject.ISBN13;
-import domainservice.IBookRepository;
-import domainservice.IDomainEventPublisher;
+import jexxatutorials.bookstore.domain.aggregate.Book;
+import jexxatutorials.bookstore.domain.businessexception.BookNotInStock;
+import jexxatutorials.bookstore.domain.valueobject.ISBN13;
+import jexxatutorials.bookstore.domainservice.IBookRepository;
+import jexxatutorials.bookstore.domainservice.IDomainEventPublisher;
 
 @SuppressWarnings("unused") // Methods which are invoked via (jexxa) driving adapter might seem unused
 public class BookStoreService
@@ -75,7 +75,7 @@ public class BookStoreService
         return bookRepository
                 .getAll()
                 .stream()
-                .map(Book::getIsbn13)
+                .map(Book::getISBN13)
                 .collect(Collectors.toList());
     }
 }

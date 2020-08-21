@@ -1,8 +1,8 @@
-package domain.domainevent;
+package jexxatutorials.bookstore.domain.domainevent;
 
 import java.util.Objects;
 
-import domain.valueobject.ISBN13;
+import jexxatutorials.bookstore.domain.valueobject.ISBN13;
 
 /**
  * Occurs if the last item of a book is sold, which is identified by it's ISBN13.
@@ -21,7 +21,7 @@ public class BookSoldOut
         return new BookSoldOut(isbn13);
     }
 
-    public ISBN13 getIsbn13()
+    public ISBN13 getISBN13()
     {
         return isbn13;
     }

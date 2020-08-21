@@ -1,12 +1,12 @@
-package domain.aggregate;
+package jexxatutorials.bookstore.domain.aggregate;
 
-import static domain.domainevent.BookSoldOut.bookSoldOut;
+import static jexxatutorials.bookstore.domain.domainevent.BookSoldOut.bookSoldOut;
 
 import java.util.Optional;
 
-import domain.businessexception.BookNotInStock;
-import domain.domainevent.BookSoldOut;
-import domain.valueobject.ISBN13;
+import jexxatutorials.bookstore.domain.businessexception.BookNotInStock;
+import jexxatutorials.bookstore.domain.domainevent.BookSoldOut;
+import jexxatutorials.bookstore.domain.valueobject.ISBN13;
 
 public class Book
 {
@@ -19,7 +19,7 @@ public class Book
     }
 
     //Aggregate ID
-    public ISBN13 getIsbn13()
+    public ISBN13 getISBN13()
     {
         return isbn13;
     }

@@ -60,9 +60,9 @@ First we map the functionality of the application to DDD patterns
 ### Package structure 
 In our tutorials we use following package structure: 
 
-*   applicationservice
+*   jexxatutorials.bookstore.applicationservice
 
-*   domainservice
+*   jexxatutorials.bookstore.domainservice
 
 *   domain 
     *   domain.valueobject
@@ -70,7 +70,7 @@ In our tutorials we use following package structure:
     *   domainevent
     *   domain.businessexception    
 
-*   infrastructure
+*   jexxatutorials.bookstore.infrastructure
     *   drivenadapter
     *   drivingadapter 
 
@@ -84,7 +84,7 @@ In our tutorials we use following package structure:
 *   `Aggregate`: Is identified by a unique `AggregateID` which is a `ValueObject`
     *   `Book` uses an `ISBN13` object     
 
-*   `Repositroy` when defining any interface within the application core ensure that you use the domain language for all methods. Resist the temptation to use the language of the used technology stack that you will use to implement this interface.        
+*   `Repository` when defining any interface within the application core ensure that you use the domain language for all methods. Resist the temptation to use the language of the used technology stack that you will use to implement this interface.        
      
 ## 2. Implement the Infrastructure
 
@@ -170,7 +170,7 @@ Finally, we have to write our application. As you can see in the code below ther
    
 ```java
     
-public final class BookStoreApplication
+public final class jexxatutorials.bookstore.BookStoreApplication
 {
     //...
     public static void main(String[] args)
@@ -181,7 +181,7 @@ public final class BookStoreApplication
         // of DDD our domain.aggregate is responsible to ensure consistency of our data and not the database.
         RepositoryManager.getInstance().setDefaultStrategy(getDrivenAdapterStrategy(args));
     
-        JexxaMain jexxaMain = new JexxaMain(BookStoreApplication.class.getSimpleName());
+        JexxaMain jexxaMain = new JexxaMain(jexxatutorials.bookstore.BookStoreApplication.class.getSimpleName());
     
         jexxaMain
                 //Define which outbound ports should be managed by Jexxa
@@ -217,13 +217,13 @@ java -jar target/bookstore-jar-with-dependencies.jar
 ```
 You will see following (or similar) output
 ```console
-[main] INFO io.jexxa.tutorials.bookstore.BookStoreApplication - Use persistence strategy: IMDBRepository 
-[main] INFO io.jexxa.core.JexxaMain - Start BoundedContext 'BookStoreApplication' with 2 Driving Adapter 
+[main] INFO io.jexxa.tutorials.bookstore.jexxatutorials.bookstore.BookStoreApplication - Use persistence strategy: IMDBRepository 
+[main] INFO io.jexxa.core.JexxaMain - Start BoundedContext 'jexxatutorials.bookstore.BookStoreApplication' with 2 Driving Adapter 
 [main] INFO org.eclipse.jetty.util.log - Logging initialized @474ms to org.eclipse.jetty.util.log.Slf4jLog
 [main] INFO io.javalin.Javalin - Starting Javalin ...
 [main] INFO io.javalin.Javalin - Listening on http://localhost:7000/
 [main] INFO io.javalin.Javalin - Javalin started in 148ms \o/
-[main] INFO io.jexxa.core.JexxaMain - BoundedContext 'BookStoreApplication' successfully started in 0.484 seconds
+[main] INFO io.jexxa.core.JexxaMain - BoundedContext 'jexxatutorials.bookstore.BookStoreApplication' successfully started in 0.484 seconds
 ```          
 
 ### Execute some commands using curl 
@@ -291,8 +291,8 @@ Following code shows a simple validation of our reference library
 ```java
 class ReferenceLibraryTest
 {
-    private static final String DRIVEN_ADAPTER_PERSISTENCE = "io.jexxa.tutorials.bookstore.infrastructure.drivenadapter.persistence";
-    private static final String DRIVEN_ADAPTER_MESSAGING =   "io.jexxa.tutorials.bookstore.infrastructure.drivenadapter.stub";
+    private static final String DRIVEN_ADAPTER_PERSISTENCE = "io.jexxa.tutorials.bookstore.jexxatutorials.bookstore.infrastructure.drivenadapter.persistence";
+    private static final String DRIVEN_ADAPTER_MESSAGING =   "io.jexxa.tutorials.bookstore.jexxatutorials.bookstore.infrastructure.drivenadapter.stub";
     
     private JexxaMain jexxaMain;
 

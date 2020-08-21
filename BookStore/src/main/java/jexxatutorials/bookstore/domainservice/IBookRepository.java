@@ -1,10 +1,10 @@
-package domainservice;
+package jexxatutorials.bookstore.domainservice;
 
 import java.util.List;
 import java.util.Optional;
 
-import domain.aggregate.Book;
-import domain.valueobject.ISBN13;
+import jexxatutorials.bookstore.domain.aggregate.Book;
+import jexxatutorials.bookstore.domain.valueobject.ISBN13;
 
 public interface IBookRepository
 {

@@ -208,9 +208,9 @@ Finally, we have to write our application. As you can see in the code below ther
 public final class TimeServiceApplication
 {
     //Declare the packages that should be used by Jexxa
-    private static final String JMS_DRIVEN_ADAPTER      = TimeServiceApplication.class.getPackageName() + ".infrastructure.drivenadapter.messaging";
-    private static final String CONSOLE_DRIVEN_ADAPTER  = TimeServiceApplication.class.getPackageName() + ".infrastructure.drivenadapter.console";
-    private static final String OUTBOUND_PORTS          = TimeServiceApplication.class.getPackageName() + ".domainservice";
+    private static final String JMS_DRIVEN_ADAPTER      = TimeServiceApplication.class.getPackageName() + ".jexxatutorials.bookstore.infrastructure.drivenadapter.messaging";
+    private static final String CONSOLE_DRIVEN_ADAPTER  = TimeServiceApplication.class.getPackageName() + ".jexxatutorials.bookstore.infrastructure.drivenadapter.console";
+    private static final String OUTBOUND_PORTS          = TimeServiceApplication.class.getPackageName() + ".jexxatutorials.bookstore.domainservice";
 
     public static void main(String[] args)
     {
@@ -280,7 +280,7 @@ curl -X POST http://localhost:7000/TimeService/publishTime
 Each time you execute curl you should see following output on console: 
 
 ```console                                                          
-[qtp2095064787-31] INFO io.jexxa.tutorials.timeservice.infrastructure.drivenadapter.console.ConsolePublisher - 19:17:12.998278
+[qtp2095064787-31] INFO io.jexxa.tutorials.timeservice.jexxatutorials.bookstore.infrastructure.drivenadapter.console.ConsolePublisher - 19:17:12.998278
 ```
 
 ## Compile & Start the Application with JMS 
@@ -309,5 +309,5 @@ curl -X POST http://localhost:7000/TimeService/publishTime
 Each time you execute curl you should see following output on console: 
 
 ```console                                                          
-[qtp26757919-34] INFO io.jexxa.tutorials.timeservice.infrastructure.drivenadapter.messaging.JMSPublisher - Successfully published time 19:18:52.992826 to topic TimeService
+[qtp26757919-34] INFO io.jexxa.tutorials.timeservice.jexxatutorials.bookstore.infrastructure.drivenadapter.messaging.JMSPublisher - Successfully published time 19:18:52.992826 to topic TimeService
 ```

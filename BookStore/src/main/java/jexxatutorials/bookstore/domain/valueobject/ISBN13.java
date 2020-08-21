@@ -1,4 +1,4 @@
-package domain.valueobject;
+package jexxatutorials.bookstore.domain.valueobject;
 
 import java.util.Objects;
 

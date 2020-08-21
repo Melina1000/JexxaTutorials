@@ -1,10 +1,10 @@
-package domainservice;
+package jexxatutorials.bookstore.domainservice;
 
-import static domain.aggregate.Book.newBook;
+import static jexxatutorials.bookstore.domain.aggregate.Book.newBook;
 
 import java.util.stream.Stream;
 
-import domain.valueobject.ISBN13;
+import jexxatutorials.bookstore.domain.valueobject.ISBN13;
 import org.apache.commons.lang3.Validate;
 
 public class ReferenceLibrary
