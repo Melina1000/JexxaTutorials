@@ -28,6 +28,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>11</maven.compiler.release>
 
+        <!-- version of compile dependencies -->
+        <commons.cli.version>1.4</commons.cli.version>
+
         <!-- version of test dependencies -->
         <slf4j.simple.version>1.7.30</slf4j.simple.version>
         <activemq.client.version>5.16.0</activemq.client.version>
