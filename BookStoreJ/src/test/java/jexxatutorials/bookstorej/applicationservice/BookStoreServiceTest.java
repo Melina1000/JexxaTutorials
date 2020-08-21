@@ -1,4 +1,4 @@
-package jexxatutorials.bookstore.applicationservice;
+package jexxatutorials.bookstorej.applicationservice;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import io.jexxa.core.JexxaMain;
 import io.jexxa.infrastructure.drivenadapterstrategy.persistence.RepositoryManager;
 import io.jexxa.infrastructure.drivenadapterstrategy.persistence.imdb.IMDBRepository;
-import jexxatutorials.bookstore.domain.aggregate.Book;
-import jexxatutorials.bookstore.domain.businessexception.BookNotInStock;
-import jexxatutorials.bookstore.infrastructure.drivenadapter.stub.DomainEventStubPublisher;
+import jexxatutorials.bookstorej.domain.aggregate.Book;
+import jexxatutorials.bookstorej.domain.businessexception.BookNotInStock;
+import jexxatutorials.bookstorej.stub.DomainEventStubPublisher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
