@@ -32,6 +32,9 @@
         <commons.cli.version>1.4</commons.cli.version>
 
         <!-- version of test dependencies -->
+        <junit.platform.launcher.version>1.7.0-M1</junit.platform.launcher.version>
+        <junit.jupiter.engine.version>5.7.0-M1</junit.jupiter.engine.version>
+        <junit.jupiter.params.version>5.7.0-M1</junit.jupiter.params.version>
         <slf4j.simple.version>1.7.30</slf4j.simple.version>
         <activemq.client.version>5.16.0</activemq.client.version>
     </properties>

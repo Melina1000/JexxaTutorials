@@ -19,8 +19,8 @@ import org.apache.commons.cli.ParseException;
 public class BookStoreApplication
 {
     // Declare the packages that should be used by Jexxa
-    private static final String DRIVEN_ADAPTER = BookStoreApplication.class.getPackageName() + "jexxatutorials.bookstore.infrastructure.drivenadapter";
-    private static final String OUTBOUND_PORTS = BookStoreApplication.class.getPackageName() + ".jexxatutorials.bookstore.domainservice";
+    private static final String DRIVEN_ADAPTER = BookStoreApplication.class.getPackageName() + ".infrastructure.drivenadapter";
+    private static final String OUTBOUND_PORTS = BookStoreApplication.class.getPackageName() + ".domainservice";
 
     public static void main(String[] args)
     {
