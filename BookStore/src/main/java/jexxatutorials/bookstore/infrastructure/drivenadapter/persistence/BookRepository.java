@@ -10,6 +10,7 @@ import jexxatutorials.bookstore.domainservice.IBookRepository;
 import io.jexxa.infrastructure.drivenadapterstrategy.persistence.IRepository;
 import io.jexxa.infrastructure.drivenadapterstrategy.persistence.RepositoryManager;
 
+@SuppressWarnings("unused")
 public class BookRepository implements IBookRepository
 {
     private final IRepository<Book, ISBN13> repository;

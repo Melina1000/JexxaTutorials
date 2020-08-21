@@ -21,11 +21,6 @@ public class DomainEventStubPublisher implements IDomainEventPublisher
         return EVENT_LIST.size();
     }
 
-    public static Object getEvent(int position)
-    {
-        return EVENT_LIST.get(position);
-    }
-
     public static void clear()
     {
         EVENT_LIST.clear();
