@@ -1,4 +1,4 @@
-package jexxatutorials.bookstorej.drivenadapter.console;
+package jexxatutorials.bookstorej.infrastructure.drivenadapter.console;
 
 import io.jexxa.utils.JexxaLogger;
 import jexxatutorials.bookstorej.domain.domainevent.BookSoldOut;

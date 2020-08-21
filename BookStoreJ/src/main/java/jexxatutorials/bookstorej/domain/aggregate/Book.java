@@ -4,10 +4,14 @@ import static jexxatutorials.bookstorej.domain.domainevent.BookSoldOut.bookSoldO
 
 import java.util.Optional;
 
+import io.jexxa.addend.applicationcore.Aggregate;
+import io.jexxa.addend.applicationcore.AggregateFactory;
+import io.jexxa.addend.applicationcore.AggregateID;
 import jexxatutorials.bookstorej.domain.businessexception.BookNotInStock;
 import jexxatutorials.bookstorej.domain.domainevent.BookSoldOut;
 import jexxatutorials.bookstorej.domain.valueobject.ISBN13;
 
+@Aggregate
 public class Book
 {
     private final ISBN13 isbn13;
@@ -18,7 +22,7 @@ public class Book
         this.isbn13 = isbn13;
     }
 
-    //Aggregate ID
+    @AggregateID
     public ISBN13 getISBN13()
     {
         return isbn13;
@@ -56,7 +60,7 @@ public class Book
         return Optional.empty();
     }
 
-    //AggregateFactory
+    @AggregateFactory(Book.class)
     public static Book newBook(ISBN13 isbn13)
     {
         return new Book(isbn13);

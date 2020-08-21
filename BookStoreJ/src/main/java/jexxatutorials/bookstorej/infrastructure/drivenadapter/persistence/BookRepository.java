@@ -1,4 +1,4 @@
-package jexxatutorials.bookstorej.drivenadapter.persistence;
+package jexxatutorials.bookstorej.infrastructure.drivenadapter.persistence;
 
 import java.util.List;
 import java.util.Optional;

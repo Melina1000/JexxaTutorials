@@ -7,14 +7,14 @@ import io.jexxa.infrastructure.drivenadapterstrategy.persistence.RepositoryManag
 import io.jexxa.infrastructure.drivenadapterstrategy.persistence.imdb.IMDBRepository;
 import jexxatutorials.bookstorej.applicationservice.BookStoreJService;
 import jexxatutorials.bookstorej.domain.aggregate.Book;
-import jexxatutorials.bookstorej.stub.DomainEventStubPublisher;
+import jexxatutorials.bookstorej.infrastructure.drivenadapter.stub.DomainEventStubPublisher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ReferenceLibraryTest
 {
-    private static final String DRIVEN_ADAPTER_PERSISTENCE = "jexxatutorials.bookstore.infrastructure.drivenadapter.persistence";
-    private static final String DRIVEN_ADAPTER_MESSAGING = "jexxatutorials.bookstore.infrastructure.drivenadapter.stub";
+    private static final String DRIVEN_ADAPTER_PERSISTENCE = "jexxatutorials.bookstorej.infrastructure.drivenadapter.persistence";
+    private static final String DRIVEN_ADAPTER_MESSAGING = "jexxatutorials.bookstorej.infrastructure.drivenadapter.stub";
 
     private JexxaMain jexxaMain;
 

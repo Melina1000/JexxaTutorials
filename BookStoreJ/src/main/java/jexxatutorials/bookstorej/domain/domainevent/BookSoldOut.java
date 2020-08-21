@@ -1,12 +1,12 @@
 package jexxatutorials.bookstorej.domain.domainevent;
 
-import java.util.Objects;
-
+import io.jexxa.addend.applicationcore.DomainEvent;
 import jexxatutorials.bookstorej.domain.valueobject.ISBN13;
 
 /**
  * Occurs if the last item of a book is sold, which is identified by it's ISBN13.
  */
+@DomainEvent
 public class BookSoldOut
 {
     private final ISBN13 isbn13;
@@ -24,26 +24,5 @@ public class BookSoldOut
     public ISBN13 getISBN13()
     {
         return isbn13;
-    }
-
-    @Override
-    public boolean equals(Object o)
-    {
-        if (this == o)
-        {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass())
-        {
-            return false;
-        }
-        BookSoldOut that = (BookSoldOut) o;
-        return Objects.equals(isbn13, that.isbn13);
-    }
-
-    @Override
-    public int hashCode()
-    {
-        return Objects.hash(isbn13);
     }
 }

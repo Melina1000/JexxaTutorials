@@ -1,5 +1,6 @@
 package jexxatutorials.bookstorej;
 
+import io.jexxa.addend.applicationcore.ApplicationService;
 import io.jexxa.core.JexxaMain;
 import io.jexxa.infrastructure.drivenadapterstrategy.persistence.IRepository;
 import io.jexxa.infrastructure.drivenadapterstrategy.persistence.RepositoryManager;
@@ -8,7 +9,6 @@ import io.jexxa.infrastructure.drivenadapterstrategy.persistence.jdbc.JDBCKeyVal
 import io.jexxa.infrastructure.drivingadapter.jmx.JMXAdapter;
 import io.jexxa.infrastructure.drivingadapter.rest.RESTfulRPCAdapter;
 import io.jexxa.utils.JexxaLogger;
-import jexxatutorials.bookstorej.applicationservice.BookStoreJService;
 import jexxatutorials.bookstorej.domainservice.ReferenceLibrary;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -40,8 +40,8 @@ public class BookStoreJApplication
                 //Get the latest books when starting the application
                 .bootstrap(ReferenceLibrary.class).with(ReferenceLibrary::addLatestBooks)
 
-                .bind(RESTfulRPCAdapter.class).to(BookStoreJService.class)
-                .bind(JMXAdapter.class).to(BookStoreJService.class)
+                .bind(RESTfulRPCAdapter.class).toAnnotation(ApplicationService.class)
+                .bind(JMXAdapter.class).to(ApplicationService.class)
 
                 .bind(JMXAdapter.class).to(jexxaMain.getBoundedContext())
 
@@ -63,9 +63,10 @@ public class BookStoreJApplication
         {
             final CommandLine line = commandLineParser.parse(options, args);
 
-            if(line.hasOption("jdbc"))
+            if (line.hasOption("jdbc"))
             {
-                JexxaLogger.getLogger(BookStoreJApplication.class).info("Use persistence strategy: {} ", JDBCKeyValueRepository.class.getSimpleName());
+                JexxaLogger.getLogger(BookStoreJApplication.class).info("Use persistence strategy: {} ",
+                        JDBCKeyValueRepository.class.getSimpleName());
                 return JDBCKeyValueRepository.class;
             }
             else
@@ -77,7 +78,7 @@ public class BookStoreJApplication
         catch (ParseException exception)
         {
             JexxaLogger.getLogger(BookStoreJApplication.class)
-                    .error( "Parsing failed.  Reason: {}", exception.getMessage() );
+                    .error("Parsing failed.  Reason: {}", exception.getMessage());
         }
         return IMDBRepository.class;
     }

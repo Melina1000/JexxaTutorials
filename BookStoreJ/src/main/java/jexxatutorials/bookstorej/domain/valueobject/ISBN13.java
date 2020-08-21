@@ -1,12 +1,12 @@
 package jexxatutorials.bookstorej.domain.valueobject;
 
-import java.util.Objects;
-
+import io.jexxa.addend.applicationcore.ValueObject;
 import org.apache.commons.lang3.Validate;
 
 /**
  * IMPORTANT NOTE: This is a simplified ISBN13 number which only validates the checksum because this is sufficient for this tutorial
  */
+@ValueObject
 public class ISBN13
 {
     private final String value;
@@ -22,27 +22,6 @@ public class ISBN13
     public String getValue()
     {
         return value;
-    }
-
-    @Override
-    public boolean equals(Object o)
-    {
-        if (this == o)
-        {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass())
-        {
-            return false;
-        }
-        ISBN13 isbn13 = (ISBN13) o;
-        return value.equals(isbn13.value);
-    }
-
-    @Override
-    public int hashCode()
-    {
-        return Objects.hash(value);
     }
 
     private void validateChecksum(String isbn13)

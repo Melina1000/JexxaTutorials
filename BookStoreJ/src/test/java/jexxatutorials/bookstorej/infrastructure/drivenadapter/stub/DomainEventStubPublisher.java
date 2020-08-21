@@ -1,4 +1,4 @@
-package jexxatutorials.bookstorej.stub;
+package jexxatutorials.bookstorej.infrastructure.drivenadapter.stub;
 
 import java.util.ArrayList;
 import java.util.List;

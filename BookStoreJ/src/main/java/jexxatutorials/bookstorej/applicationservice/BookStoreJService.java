@@ -5,6 +5,7 @@ import static jexxatutorials.bookstorej.domain.aggregate.Book.newBook;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import io.jexxa.addend.applicationcore.ApplicationService;
 import jexxatutorials.bookstorej.domain.aggregate.Book;
 import jexxatutorials.bookstorej.domain.businessexception.BookNotInStock;
 import jexxatutorials.bookstorej.domain.valueobject.ISBN13;
@@ -12,6 +13,7 @@ import jexxatutorials.bookstorej.domainservice.IBookRepository;
 import jexxatutorials.bookstorej.domainservice.IDomainEventPublisher;
 
 @SuppressWarnings("unused") // Methods which are invoked via (jexxa) driving adapter might seem unused
+@ApplicationService
 public class BookStoreJService
 {
     private final IBookRepository bookRepository;
